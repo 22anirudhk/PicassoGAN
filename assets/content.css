@@ -1,0 +1,20 @@
+#content-div {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 900px;
+}
+
+#picture-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.picture {
+  margin: 20px;
+}
+
+#style-dropdown {
+  text-align: center;
+}
