@@ -17,4 +17,11 @@
 
 #about {
   margin-right: 100px;
+  text-decoration: none;
+  color: black;
+}
+
+#about:hover {
+  transition: 0.2s;
+  color: gray;
 }

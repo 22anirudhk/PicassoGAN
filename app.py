@@ -20,13 +20,9 @@ app.layout = html.Div(children=[
             html.H1("PicassoGAN", id="title"),
             html.H3("MACHINE GENERATED ART", id="subtitle")
         ], id="logo-div"),
-        html.H3("ABOUT", id="about")
+        html.A("ABOUT", id="about", href="/")
     ], id="header-div"),
     html.Div(children=[
-        # Pictures
-        html.Div(children=[
-
-        ], id="picture-div"),
         # Selector for art type
         dcc.Dropdown(
             id='style-dropdown',
@@ -38,6 +34,12 @@ app.layout = html.Div(children=[
             ],
             value="Impressionism"
         ),
+
+        # Pictures
+        html.Div(children=[
+
+        ], id="picture-div"),
+
 
     ], id="content-div")
 ], id="everything")
