@@ -2,7 +2,13 @@
   display: flex;
   flex-direction: column;
 
-  max-width: 900px;
+  /* max-width: 900px; */
+  align-items: center;
+}
+
+#graph {
+  width: 1000px;
+  margin-left: 205px;
 }
 
 #picture-div {
@@ -13,8 +19,19 @@
 
 .picture {
   margin: 20px;
+  width: 120px;
 }
 
 #style-dropdown {
   text-align: center;
+  width: 300px;
+}
+
+.modebar {
+  display: none !important;
+}
+
+#tutorial-text {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 15px;
 }
