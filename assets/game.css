@@ -1,0 +1,20 @@
+#button-div {
+  display: flex;
+}
+.btn {
+  width: 100px;
+}
+
+#score-div {
+  display: flex;
+  flex-direction: row;
+}
+
+#score {
+  margin: 20px;
+}
+
+/* To hide the answer */
+#ans {
+  display: none;
+}
