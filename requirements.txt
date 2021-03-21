@@ -11,7 +11,7 @@ dlib==19.19.0
 enum34==1.1.10
 face-recognition==1.2.3
 face-recognition-models==0.3.0
-filelock==3.0.12
+filelock==3.0.12 
 Flask==1.1.2
 Flask-Compress==1.5.0
 gunicorn==19.10.0
