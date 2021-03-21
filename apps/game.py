@@ -125,9 +125,4 @@ def displayClick(btn1, btn2, btn3, data):
               [Input('local', 'modified_timestamp')],
               [State('local', 'data')])
 def on_data(ts, data):
-    if ts is None:
-        raise PreventUpdate
-
-    data = data or {}
-
     return data.get('score', 0), data.get('ans', 0)
