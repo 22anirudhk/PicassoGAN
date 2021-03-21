@@ -1,4 +1,4 @@
-#header-div {
+.header-div {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -7,21 +7,36 @@
   margin-top: 50px;
 }
 
-#logo-div {
+.logo-div {
   margin-left: 100px;
 }
 
-#subtitle {
-  color: gray;
-}
+.title {
+  font-size: 32px;
 
-#about {
-  margin-right: 100px;
   text-decoration: none;
   color: black;
 }
 
-#about:hover {
+.title:hover {
+  transition: 0.2s;
+  color: gray;
+}
+
+.subtitle {
+  color: gray;
+}
+
+.about,
+.game {
+  margin-right: 100px;
+  margin-left: 100px;
+  text-decoration: none;
+  color: black;
+}
+
+.about:hover,
+.game:hover {
   transition: 0.2s;
   color: gray;
 }

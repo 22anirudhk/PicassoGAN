@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel&display=swap");
 
-#everything {
+.everything {
   font-family: "Cinzel", serif;
 
   display: flex;
