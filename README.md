@@ -4,6 +4,11 @@ Art is cool. AI is cool. That's enough, I guess.
 ## What it does
 A website with infinite art...all made by an AI! Featuring historical styles such as Impressionism and Neoclassicism. Also with a semi-functional game to guess which art pieces are real and which ones are made by the AI. 
 
+<img src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_thumbnail_photos/001/441/877/datas/medium.png" alt="image"> 
+
+Devpost Link:
+<a href="https://devpost.com/software/picassogan"> https://devpost.com/software/picassogan </a>
+
 ## Challenges 
 We’ve both always been very interested in AI and have long desired to work with some of the more novel neural network structures. We saw DVHacks as an opportunity to explore modern AI in a more creative fashion and decided to implement one of the most fascinating neural networks: the GAN, generative adversarial network, proposed by Goodfellow in 2014. 
 
