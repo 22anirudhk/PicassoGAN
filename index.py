@@ -6,6 +6,8 @@ from app import app
 from apps import home, about, game
 import time
 
+server = app.server
+
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     html.Div(id='page-content')
@@ -19,8 +21,10 @@ def display_page(pathname):
         return about.layout
     elif pathname == '/game':
         return game.layout
-    else:
+    elif pathname == '/':
         return home.layout
+    else:
+        return '404'
 
 
 if __name__ == '__main__':

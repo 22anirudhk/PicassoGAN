@@ -4,10 +4,8 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 
 from app import app
-
-import tensorflow
 import numpy as np
-from tensorflow import keras
+import keras
 from keras.models import load_model
 from numpy.random import randn
 
@@ -63,76 +61,71 @@ layout = html.Div(children=[
 def update_images(value):
     import os
 
-    def remove_img(path, img_name):
-        # check if file exists or not
-        if os.path.exists(path + '/' + img_name) is True:
-            os.remove(path + '/' + img_name)
-    for i in range(1, 9):
-        remove_img(path='assets/pictures',
-                   img_name='image-' + str(i) + '.jpeg')
+    print("EEEEEEEEEEEEEEEEE" + value)
 
     # generate points in latent space as input for the generator
-        def generate_latent_points(latent_dim, n_samples):
-            # generate points in the latent space
-            x_input = randn(latent_dim * n_samples)
-            # reshape into a batch of inputs for the network
-            x_input = x_input.reshape(n_samples, latent_dim)
-            return x_input
+    def generate_latent_points(latent_dim, n_samples):
+        # generate points in the latent space
+        x_input = randn(latent_dim * n_samples)
+        # reshape into a batch of inputs for the network
+        x_input = x_input.reshape(n_samples, latent_dim)
+        return x_input
 
-        # load model
-        filepath = 'models/' + value.lower() + '_model.h5'
-        model = keras.models.load_model(str(filepath))
-        # generate images
-        latent_points = generate_latent_points(100, 9)
-        # generate images
-        X = model.predict(latent_points)
-        # scale from [-1,1] to [0,1]
-        X = (X + 1) / 2.0
-        print(len(X))
+    # load model
+    filepath = 'models/' + value.lower() + '_model.h5'
 
-        from plotly.subplots import make_subplots
-        import plotly.graph_objects as go
+    print("ABOVEABOVEABOVE")
+    model = keras.models.load_model(str(filepath))
+    print("BELOWBELOWBELOW")
 
-        fig = make_subplots(rows=3, cols=3)
+    # generate images
+    latent_points = generate_latent_points(100, 9)
+    print("LATENT_POINTS")
+    # generate images
+    X = model.predict(latent_points)
+    print("PREDICT")
+    # scale from [-1,1] to [0,1]
+    X = (X + 1) / 2.0
 
-        row = 1
-        col = 1
-        for img_arr in X:
-            if(col == 4):
-                row += 1
-                col = 1
+    from plotly.subplots import make_subplots
+    import plotly.graph_objects as go
 
-            img_arr = img_arr * 255
-            img_arr = img_arr.astype(np.uint8)
+    fig = make_subplots(rows=3, cols=3)
 
-            fig.add_trace(px.imshow(img_arr).data[0], row=row, col=col)
+    row = 1
+    col = 1
+    for img_arr in X:
+        if(col == 4):
+            row += 1
+            col = 1
+        img_arr = img_arr * 255
+        # img_arr = img_arr.astype(np.uint8)
+        fig.add_trace(px.imshow(img_arr).data[0], row=row, col=col)
+        col += 1
+    # fig.show()
+    fig.update_layout(height=800, width=800)
 
-            col += 1
+    fig.print_grid()
 
-        # fig.show()
-        fig.update_layout(height=800, width=800)
+    fig.update_yaxes(visible=False, showticklabels=False)
+    fig.update_xaxes(visible=False, showticklabels=False)
 
-        fig.print_grid()
+    return fig
 
-        fig.update_yaxes(visible=False, showticklabels=False)
-        fig.update_xaxes(visible=False, showticklabels=False)
+    # # Save images to pictures directory
+    # from PIL import Image
 
-        return fig
+    # index = 1
+    # for img_arr in X:
+    #     img_arr = img_arr * 255
+    #     img_arr = img_arr.astype(np.uint8)
+    #     img = Image.fromarray(img_arr)
+    #     img_path = 'assets/pictures/image-' + str(index) + '.jpeg'
 
-        # # Save images to pictures directory
-        # from PIL import Image
+    #     print(img_path)
 
-        # index = 1
-        # for img_arr in X:
-        #     img_arr = img_arr * 255
-        #     img_arr = img_arr.astype(np.uint8)
-        #     img = Image.fromarray(img_arr)
-        #     img_path = 'assets/pictures/image-' + str(index) + '.jpeg'
-
-        #     print(img_path)
-
-        #     img.save(img_path)
-        #     index += 1
+    #     img.save(img_path)
+    #     index += 1
     # add_images()
 
     # Generate the images based on the style and then return them into pictureDiv
