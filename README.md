@@ -9,7 +9,7 @@ A website with infinite art...all made by an AI! Featuring historical styles suc
 Devpost Link:
 <a href="https://devpost.com/software/picassogan"> https://devpost.com/software/picassogan </a>
 
-## Challenges 
+## Background 
 We’ve both always been very interested in AI and have long desired to work with some of the more novel neural network structures. We saw DVHacks as an opportunity to explore modern AI in a more creative fashion and decided to implement one of the most fascinating neural networks: the GAN, generative adversarial network, proposed by Goodfellow in 2014. 
 
 In essence, the GAN has two components: the generator, and the discriminator. The generator tries to generate images of a certain theme given by the dataset (ie. pictures of cars), and the discriminator must be able to distinguish and classify which images it receives are real and from the dataset and which ones are “fake” (the ones made by the generator). By constantly trying to one-up each other, the GAN adopts an “adversarial” approach to AI generation which we realized was amazingly effective.
